@@ -1,0 +1,46 @@
+package balance;
+import java.util.*;
+public class Account
+{
+long acc,bal;
+String name;
+public void read()throws Exception
+{
+Scanner in = new Scanner(System.in);
+System.out.println("Enter the name :");
+name=in.nextLine();
+System.out.println("Enter the account number :");
+acc=Long.parseLong(in.nextLine());
+System.out.println("Enter the account balance :");
+bal=Long.parseLong(in.nextLine());
+}
+public void disp()
+{
+System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+System.out.println("--- Account Details ---");
+System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+System.out.println("Name :"+name);
+System.out.println("Account number :"+acc);
+System.out.println("Balance :"+bal);
+}
+}
+
+
+2. Second program is for BankBal, this class will access the methods of  Account class of balance package.
+class BankBal
+{
+public static void main(String ar[])
+{
+try
+{
+balance.Account a=new balance.Account();
+//Above line of program is creating the object of Account class, which is //in balance package
+a.read(); //calling the method of Account class
+a.disp();
+}
+catch(Exception e)
+{	 
+System.out.println(e); 
+}
+}
+}

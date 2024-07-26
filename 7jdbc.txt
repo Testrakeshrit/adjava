@@ -1,0 +1,102 @@
+Fetch the details of emp table from MYsql database
+
+package jdbcDemo;
+import java.sql.*;  
+class JDBCdemo{  
+public static void main(String args[]){  
+try{ 
+    //Load the JDBC Driver inside the program
+Class.forName("com.mysql.jdbc.Driver");  
+Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ise","root","");  
+//here ise is database name, root is username and no password  
+Statement stmt=con.createStatement();  
+ResultSet rs=stmt.executeQuery("select * from emp");  
+while(rs.next())  
+System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getInt(3));  
+con.close();  
+}catch(Exception e){ System.out.println(e);}  
+}  
+}  
+
+Insert the details in emp table from MYsql database
+
+import java.sql.*;
+import java.sql.DriverManager;
+
+public class InsertJDBCdemo
+{
+    public static void main(String args[])
+    {
+         int id=5;
+        String name = "name";
+        int age=35;
+        try
+        {
+             //Load the JDBC Driver inside the program
+Class.forName("com.mysql.jdbc.Driver");  
+Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ise","root","");  
+//here ise is database name, root is username and no password  
+            // Inserting data in database
+            Statement stmt=con.createStatement(); 
+            String q1 = "insert into emp values('" +id+ "', '" +name+ "', '" +age+ "')";
+            int x = stmt.executeUpdate(q1);
+            if (x > 0)            
+                System.out.println("Successfully Inserted");            
+            else           
+                System.out.println("Insert Failed");
+             
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+}
+
+
+Reading details from keyboard and inserting
+
+package jdbcDemo;
+import java.sql.*;
+import java.sql.DriverManager;
+import java.util.*;
+
+public class InsertJDBCuserInput
+{
+    public static void main(String args[])
+    {
+        int id,age;
+        String name;
+        Scanner s1=new Scanner(System.in);
+        System.out.println("Enter id of employee");
+         id=s1.nextInt();
+         System.out.println("Enter name of employee");
+         name=s1.next();
+         System.out.println("Enter age of employee");
+         age=s1.nextInt();
+        try
+        {
+             //Load the JDBC Driver inside the program
+Class.forName("com.mysql.jdbc.Driver");  
+Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ise","root","");  
+//here ise is database name, root is username and no password  
+            // Inserting data in database
+            Statement stmt=con.createStatement();  
+            
+            String q1 = "insert into emp values('" +id+ "', '" +name+ "', '" +age+ "')";
+            int x = stmt.executeUpdate(q1);
+            if (x > 0)            
+                System.out.println("Successfully Inserted");            
+            else           
+                System.out.println("Insert Failed");
+             
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+}
+

@@ -1,0 +1,46 @@
+public class Vehicle 
+{ 
+//instance variables
+int no_of_seats;
+int no_of_wheels;
+//constructor initializes the Vehicle variables
+public Vehicle(int numSeats, int numWheels)
+{
+this.no_of_seats = numSeats;
+this.no_of_wheels = numWheels;
+}
+//method to show details of vehicle
+public void showDetails() 
+{
+System.out.println("Total number of seats: "+no_of_seats);
+System.out.println("Total number of wheels: "+no_of_wheels);
+}
+}
+
+class Bike extends Vehicle
+{
+ //int no_of_seats,no_of_wheels;
+String regNo;
+int model;
+Bike(int w,int s,String r,int m)
+{
+super(w,s);
+regNo=r;
+model=m;
+}
+void display()
+{
+System.out.println(“Two wheeler TVS”);
+super.display();
+System.out.println(“REG NO :” +regNo);
+System.out.println(“No. of model:” +model);
+}
+}
+class VehicleDemo2
+{
+public static void main(String arg[])
+{
+Bike t1=new Bike(2,2,”TN7412345”,212);
+t1.display();
+}
+}

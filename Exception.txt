@@ -1,0 +1,35 @@
+package javaapplication2;
+import java.util.Scanner; 
+class ExceptionDemo 
+{
+ 	public static void main(String[] args) 
+{ 
+int a,b,result; 
+Scanner input =new Scanner(System.in); 
+System.out.println("Input two integers"); 
+a=input.nextInt(); 
+b=input.nextInt(); 
+try { 
+result=a/b; 
+//if b=o that means Divide by zero error exception
+System.out.println("Result="+result); 
+// try will get the exception and send to catch to display
+} 
+catch(ArithmeticException e) 
+{ 
+System.out.println("exception caught: Divide by zero error"+e); 
+} 
+//demonstration of ArrayIndexOutOfBoundsException 
+int array[]={2,3,4,5,6};
+try{
+System.out.println("Input two integers"+array[5]); 
+//trying to read index 5 elements that is 6th element of array
+//6th element is not present in array
+// so try block will get the exception and send to catch to display it
+}
+catch(ArrayIndexOutOfBoundsException e1) 
+{ 
+System.out.println("array index out of bound"+e1); 
+} 
+       }
+}
